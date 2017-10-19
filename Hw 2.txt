@@ -1,0 +1,52 @@
+%WHATS YOUR FIRST NAME
+prompt = 'What is your first name?';
+fname = input(prompt, 's');
+
+%WHATS YOUR LAST NAME
+prompt = 'What is your surname?';
+surname = input(prompt, 's');
+
+%PRESENT FULLNAME
+fullname = [fname, ' ', num2str(surname)];
+disp(fullname)
+
+fullname = [fname, num2str(surname)];
+nonspace = isspace(fullname);
+disp(nonspace);
+nonspacechar = nnz(~nonspace);
+
+%NON SPACE = 0 
+if nonspacechar == 0
+disp('So you are anonymous, OK.');
+end
+
+%NON SPACE >= 20
+if nonspacechar >= 20
+disp('Whoa, that is a long name!');
+end
+
+%NON SPACE < 20 & > 0
+if nonspacechar < 20 & nonspacechar > 0
+disp('OK then');
+end
+
+%END
+realname = ['Your first and last names have a total of ', num2str(nonspacechar) ' characters'];
+disp(realname)
+
+%Alternative version
+%Try to implement this with a single conditional if statement 
+
+disp('=== SINGLE CONDITIONAL IF STATEMENT ===')
+if nonspacechar == 0 
+disp('So you are anonymous, OK.');
+elseif nonspacechar >= 20
+disp('Whoa, that is a long name!');
+else 
+disp('OK then');
+end
+realname = ['Your first and last names have a total of ', num2str(nonspacechar) ' characters'];
+disp(realname)
+
+
+
